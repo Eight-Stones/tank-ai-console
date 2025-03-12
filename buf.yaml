@@ -1,0 +1,14 @@
+# For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml
+version: v2
+### got extra deps
+deps:
+  - buf.build/grpc-ecosystem/grpc-gateway
+  - buf.build/googleapis/googleapis
+modules:
+  - path: docs/proto_source
+lint:
+  use:
+    - STANDARD
+breaking:
+  use:
+    - FILE

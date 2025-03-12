@@ -1,0 +1,34 @@
+version: v2
+clean: true
+managed:
+  enabled: true
+  disable:
+    - module: buf.build/googleapis/googleapis
+    - module: buf.build/grpc-ecosystem/grpc-gateway
+  override:
+    - file_option: go_package_prefix
+      ### any generate package got this prefix
+      value: example/internal/controller/grpc/proto
+plugins:
+  - local: protoc-gen-go
+    out: internal/controller/proto
+    opt: paths=source_relative
+  ### using special go-micro bin for proto generate
+  - local: protoc-gen-micro
+    out: internal/controller/proto
+    opt: paths=source_relative
+  ### classic bin for proto generate
+  #- local: protoc-gen-go-grpc
+  #  out: internal/controller/grpc/proto
+  #  opt: paths=source_relative
+  ### classic bin for proto gateway generate
+  #- local: protoc-gen-grpc-gateway
+  #  out: internal/controller/grpc/proto
+  #  opt:
+  #    - paths=source_relative
+  #   - generate_unbound_methods=true
+  #- local: protoc-gen-openapiv2
+  #  out: internal/controller/grpc/proto
+### where proto files locate
+inputs:
+  - directory: docs/proto_source

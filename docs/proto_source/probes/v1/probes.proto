@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package probes.v1;
+
+message HealthRequest {}
+
+message HealthResponse {}
+
+message ReadyRequest {}
+
+message ReadyResponse {}
+
+service ProbesService {
+  rpc GetHealth(HealthRequest) returns (HealthResponse) {}
+  rpc GetReady(ReadyRequest) returns (ReadyResponse) {}
+}
+

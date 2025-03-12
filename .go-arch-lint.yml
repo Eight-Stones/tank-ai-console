@@ -1,0 +1,81 @@
+version: 3
+workdir: internal
+components:
+  app: { in: app/** }
+  rest-controller: { in: controller/rest/** }
+  rest-dto: { in: controller/rest/dto }
+  rest-converter: { in: controller/rest/convert }
+  rest-handler: { in: controller/rest/handler/** }
+  rest-middleware: { in: controller/rest/middleware }
+  usecase: { in: usecase/** }
+  gateway: { in: gateway/** }
+  storage-model: { in: gateway/storage/*/model }
+  entity: { in: ../entity }
+  common: { in: ../common/** }
+  package: { in: ../pkg/** }
+  config: { in: app/*/config }
+  #proto: {in: controller/proto/**}
+
+commonComponents:
+  - entity
+  - common
+
+exclude:
+  - controller/proto/**
+
+deps:
+  app:
+    anyVendorDeps: true
+    mayDependOn:
+      - rest-controller
+      - usecase
+      - gateway
+      - package
+      - config
+
+  config:
+    anyVendorDeps: true
+    mayDependOn:
+      - package
+
+  rest-handler:
+    mayDependOn:
+      - package
+      - rest-dto
+      - rest-converter
+      - usecase
+
+  rest-converter:
+    mayDependOn:
+      - rest-dto
+
+  rest-middleware:
+    anyVendorDeps: true
+    mayDependOn:
+      - rest-dto
+      - package
+
+  rest-controller:
+    anyVendorDeps: true
+    mayDependOn:
+      - package
+      - rest-handler
+      - rest-dto
+      - rest-middleware
+
+  storage-model:
+    anyVendorDeps: true
+    mayDependOn:
+      - package
+
+  gateway:
+    anyVendorDeps: true
+    mayDependOn:
+      - package
+      - storage-model
+
+  usecase:
+    anyVendorDeps: true
+    mayDependOn:
+      - package
+      - gateway
