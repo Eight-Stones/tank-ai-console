@@ -4,18 +4,10 @@ logger.level = "debug"
 logger.keys.inst = "local"
 
 controller.rest.host = "localhost"
-controller.rest.port = 8080
+controller.rest.port = 8081
 
 controller.grpc.host = "localhost"
-controller.grpc.port = 50051
+controller.grpc.port = 50052
 
-db.postgres.book.host = "localhost"
-db.postgres.book.port = 5432
-db.postgres.book.name = "postgres"
-db.postgres.book.user = "postgres"
-db.postgres.book.password = "password"
-db.postgres.book.ssl = "disable"
-db.postgres.book.connMaxLifetime = "180s"
-db.postgres.book.maxOpenConns = 10
-db.postgres.book.connMaxIdleTime = "240s"
-db.postgres.book.maxIdleConns = 5
+gateway.rest.tank.host = "localhost"
+gateway.rest.tank.port = 8080

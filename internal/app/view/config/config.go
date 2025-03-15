@@ -6,7 +6,10 @@ import (
 )
 
 type Config struct {
-	Storage Storage
+	App           App
+	Observability Observability
+	Controller    Controller
+	Gateway       Gateway
 }
 
 func New(path string) (*Config, error) {
@@ -16,6 +19,9 @@ func New(path string) (*Config, error) {
 	}
 
 	return &Config{
-		Storage: NewStorage(cfg),
+		App:           newApp(cfg),
+		Observability: newObservability(cfg),
+		Controller:    newController(cfg),
+		Gateway:       newGateway(cfg),
 	}, nil
 }

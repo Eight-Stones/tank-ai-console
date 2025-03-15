@@ -1,18 +1,18 @@
 module go-micro-service-template
 
-go 1.23
+go 1.23.1
 
 require (
+	github.com/Eight-Stones/ecs-tank-engine/v2 v2.0.2
 	github.com/Masterminds/squirrel v1.5.4
 	github.com/go-micro/plugins/v4/config/encoder/toml v1.2.0
 	github.com/go-micro/plugins/v4/logger/zap v1.2.1
 	github.com/go-micro/plugins/v4/server/grpc v1.2.0
 	github.com/google/uuid v1.6.0
 	github.com/jackc/pgx/v5 v5.7.2
-	github.com/lib/pq v1.10.9
-	github.com/pressly/goose/v3 v3.24.1
 	github.com/prometheus/client_golang v1.20.5
 	github.com/qiangxue/fasthttp-routing v0.0.0-20160225050629-6ccdc2a18d87
+	github.com/rivo/tview v0.0.0-20241227133733-17b7edb88c57
 	github.com/stretchr/testify v1.10.0
 	github.com/valyala/fasthttp v1.58.0
 	go-micro.dev/v4 v4.11.0
@@ -37,6 +37,8 @@ require (
 	github.com/evanphx/json-patch/v5 v5.5.0 // indirect
 	github.com/felixge/httpsnoop v1.0.1 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
+	github.com/gdamore/encoding v1.0.0 // indirect
+	github.com/gdamore/tcell/v2 v2.7.1 // indirect
 	github.com/go-acme/lego/v4 v4.4.0 // indirect
 	github.com/go-git/gcfg v1.5.0 // indirect
 	github.com/go-git/go-billy/v5 v5.3.1 // indirect
@@ -57,7 +59,8 @@ require (
 	github.com/klauspost/compress v1.17.11 // indirect
 	github.com/lann/builder v0.0.0-20180802200727-47ae307949d0 // indirect
 	github.com/lann/ps v0.0.0-20150810152359-62de8c46ede0 // indirect
-	github.com/mfridman/interpolate v0.0.2 // indirect
+	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
+	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/miekg/dns v1.1.43 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
@@ -69,10 +72,10 @@ require (
 	github.com/prometheus/client_model v0.6.1 // indirect
 	github.com/prometheus/common v0.55.0 // indirect
 	github.com/prometheus/procfs v0.15.1 // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.13.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sergi/go-diff v1.1.0 // indirect
-	github.com/sethvargo/go-retry v0.3.0 // indirect
 	github.com/urfave/cli/v2 v2.25.7 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/xanzy/ssh-agent v0.3.0 // indirect
@@ -83,6 +86,7 @@ require (
 	golang.org/x/net v0.34.0 // indirect
 	golang.org/x/sync v0.10.0 // indirect
 	golang.org/x/sys v0.29.0 // indirect
+	golang.org/x/term v0.28.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
 	golang.org/x/tools v0.29.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240318140521-94a12d6c2237 // indirect

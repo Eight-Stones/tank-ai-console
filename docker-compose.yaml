@@ -30,43 +30,10 @@ services:
       - "./observability/grafana/data:/var/grafana/grafana_data"
       - "./observability/grafana/provisioning/:/etc/grafana/provisioning/"
 
-  db:
-    container_name: pg-example-db
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-    ports:
-      - "5432:5432"
-
-  migrator:
-    container_name: migrator
-    depends_on:
-      - db
+  view:
+    container_name: view
     build:
-      dockerfile: docker/migrator/Dockerfile
-    links:
-      - db
-
-  example:
-    container_name: example
-    build:
-      dockerfile: docker/example/Dockerfile
+      dockerfile: docker/view/Dockerfile
     restart: always
     ports:
       - "8080:8080"
-    links:
-      - migrator
-
-#  alertmanager:
-#    image: prom/alertmanager
-#    ports:
-#      - "9093:9093"
-#    volumes:
-#      - ./alertmanager/:/etc/alertmanager/
-#    command:
-#      - "--config.file=/etc/alertmanager/config.yml"
-#      - "--storage.path=/alertmanager"
-
-# https://github.com/rubencougil/prometheus-go/blob/master/README.md
