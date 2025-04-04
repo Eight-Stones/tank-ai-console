@@ -26,3 +26,12 @@ go.work.sum
 
 # prometheus ignores
 /observability/prometheus/data
+
+.idea
+
+/web/node_modules
+/web/dist
+/web/build
+/web/public/build
+/web/public/dist
+/web/public/node_modules
